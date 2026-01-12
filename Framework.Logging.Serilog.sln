@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Logging.Serilog", "Framework.Logging.Serilog\Framework.Logging.Serilog.csproj", "{62D1F4E3-0A45-461E-8D77-DA7E7AF62F7A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{70AEEF56-02E4-4BBC-828D-6EB84A0BF74E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Logging.Serilog", "src\Framework.Logging.Serilog\Framework.Logging.Serilog.csproj", "{36285AE3-FD78-4C61-85DC-FAB4F9D63F1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +10,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{62D1F4E3-0A45-461E-8D77-DA7E7AF62F7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62D1F4E3-0A45-461E-8D77-DA7E7AF62F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62D1F4E3-0A45-461E-8D77-DA7E7AF62F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62D1F4E3-0A45-461E-8D77-DA7E7AF62F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36285AE3-FD78-4C61-85DC-FAB4F9D63F1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36285AE3-FD78-4C61-85DC-FAB4F9D63F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36285AE3-FD78-4C61-85DC-FAB4F9D63F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36285AE3-FD78-4C61-85DC-FAB4F9D63F1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{36285AE3-FD78-4C61-85DC-FAB4F9D63F1D} = {70AEEF56-02E4-4BBC-828D-6EB84A0BF74E}
 	EndGlobalSection
 EndGlobal
