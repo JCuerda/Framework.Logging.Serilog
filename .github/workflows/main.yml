@@ -58,5 +58,5 @@ jobs:
       run: |
         dotnet nuget push "${{ env.PACKAGE_OUTPUT_DIR }}/*.nupkg" \
           --source GitHubNugetFeed \
-          --api-key ${{ secrets.GITHUB_TOKEN }} \
+          --api-key ${{ secrets.NUGET_PACKAGE_TOKEN }} \
           --skip-duplicate
