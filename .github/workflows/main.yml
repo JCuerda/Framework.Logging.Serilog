@@ -1,0 +1,60 @@
+name: Build and Publish NuGet Package
+
+on:
+  push:
+    branches: [ main, master ]
+    tags:
+      - 'v*'
+  pull_request:
+    branches: [ main, master ]
+
+env:
+  DOTNET_VERSION: '8.0.x'
+  PROJECT_PATH: 'src/Framework.Logging.Serilog/Framework.Logging.Serilog.csproj'
+  PACKAGE_OUTPUT_DIR: './artifacts'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    
+    - name: Authenticate to GitHub Packages
+      run: |
+        dotnet nuget add source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json \
+          --name github \
+          --username ${{ github.actor }} \
+          --password ${{ secrets.GITHUB_TOKEN }} \
+          --store-password-in-clear-text
+    
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    
+    - name: Pack
+      run: dotnet pack ${{ env.PROJECT_PATH }} --configuration Release --no-build --output ${{ env.PACKAGE_OUTPUT_DIR }}
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nuget-package
+        path: ${{ env.PACKAGE_OUTPUT_DIR }}/*.nupkg
+    
+    - name: Push to GitHub Packages
+      if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v'))
+      run: |
+        dotnet nuget push "${{ env.PACKAGE_OUTPUT_DIR }}/*.nupkg" \
+          --source github \
+          --api-key ${{ secrets.GITHUB_TOKEN }} \
+          --skip-duplicate
