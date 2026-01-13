@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Authors>Jessie Cuerda</Authors>
-        <Description>Central Logging Library Wrapper for Serilog</Description>
+        <Description>A lightweight wrapper for Serilog designed to standardize logging across .NET applications. It simplifies configuration by integrating Serilog with Microsoft.Extensions.Logging and includes pre-configured enrichers for Environment and Thread data, along with Console and File sinks.</Description>
         <Version>1.0.0</Version>
         <PackageId>JAC.Framework.Logging.Serilog</PackageId>
     </PropertyGroup>
