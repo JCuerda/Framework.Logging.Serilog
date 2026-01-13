@@ -1,6 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{70AEEF56-02E4-4BBC-828D-6EB84A0BF74E}"
+	ProjectSection(SolutionItems) = preProject
+		src\nuget.config = src\nuget.config
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Logging.Serilog", "src\Framework.Logging.Serilog\Framework.Logging.Serilog.csproj", "{36285AE3-FD78-4C61-85DC-FAB4F9D63F1D}"
 EndProject
