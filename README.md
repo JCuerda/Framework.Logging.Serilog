@@ -162,7 +162,7 @@ public sealed class Worker(ILogger<Worker> logger)
 ```
 ## Requirements
 
-- .NET 8.0
+- .NET 10.0
 
 ## License
 
